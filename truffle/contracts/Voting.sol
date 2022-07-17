@@ -82,12 +82,13 @@ contract Voting is Ownable {
 
     // ::::::::::::: PROPOSAL ::::::::::::: // 
 
-    ///@notice Permet aux électeurs de soumettre au vote une proposition unique et non-vide.
+    ///@notice Permet aux électeurs de soumettre au vote une proposition unique et non-vide. Un maximum de 1000 propositions peuvent être soumises.
     ///@dev Ajout d'une proposition _desc dans le tableau proposalsArray. Nécessite le bon workflowStatus.
     ///@param _desc Proposition à soumettre au vote.
     function addProposal(string memory _desc) external onlyVoters {
+        require(proposalsArray.length <= 1000, 'Sorry, the maximum number of proposals has already been reached.');
         require(workflowStatus == WorkflowStatus.ProposalsRegistrationStarted, 'Proposals are not allowed yet');
-        require(keccak256(abi.encode(_desc)) != keccak256(abi.encode("")), 'Vous ne pouvez pas ne rien proposer');
+        require(keccak256(abi.encode(_desc)) != keccak256(abi.encode("")), 'You cannot register an empty proposal');
 
         Proposal memory proposal;
         proposal.description = _desc;
@@ -145,16 +146,16 @@ contract Voting is Ownable {
     ///@dev Boucle qui détermine winninProposalID = la proposition élue avec le plus de voix . Nécessite le bon workflowStatus.
     ///@dev Change le workflowStatus de VotingSessionEnded à VotesTallied.
     function tallyVotes() external onlyOwner {
-       require(workflowStatus == WorkflowStatus.VotingSessionEnded, "Current status is not voting session ended");
-       uint _winningProposalId;
-      for (uint256 p = 0; p < proposalsArray.length; p++) {
+        require(workflowStatus == WorkflowStatus.VotingSessionEnded, "Current status is not voting session ended");
+        uint _winningProposalId;
+        for (uint256 p = 0; p < proposalsArray.length; p++) {
            if (proposalsArray[p].voteCount > proposalsArray[_winningProposalId].voteCount) {
                _winningProposalId = p;
           }
-       }
-       winningProposalID = _winningProposalId;
+        }
+        winningProposalID = _winningProposalId;
        
-       workflowStatus = WorkflowStatus.VotesTallied;
-       emit WorkflowStatusChange(WorkflowStatus.VotingSessionEnded, WorkflowStatus.VotesTallied);
+        workflowStatus = WorkflowStatus.VotesTallied;
+        emit WorkflowStatusChange(WorkflowStatus.VotingSessionEnded, WorkflowStatus.VotesTallied);
     }
 }
