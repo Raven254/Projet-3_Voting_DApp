@@ -40,7 +40,8 @@ contract Voting is Ownable {
     event VoterRegistered(address voterAddress); 
     event WorkflowStatusChange(WorkflowStatus previousStatus, WorkflowStatus newStatus);
     event ProposalRegistered(uint proposalId);
-    event Voted (address voter, uint proposalId);
+    event Voted(address voter, uint proposalId);
+    event DepositReceived(address addr);
 
     ///@dev Modifier pour restreindre l'usage de certaines fonctions aux electeurs enregistrés.
     modifier onlyVoters() {
@@ -157,5 +158,16 @@ contract Voting is Ownable {
        
         workflowStatus = WorkflowStatus.VotesTallied;
         emit WorkflowStatusChange(WorkflowStatus.VotingSessionEnded, WorkflowStatus.VotesTallied);
+    }
+
+    ///@dev Fonction receive
+    receive() external payable {
+        emit DepositReceived(msg.sender);
+    }
+
+    ///@dev Fonction fallback
+    fallback() external payable {
+        require(msg.data.length == 0, 'We cannot accept your sending.');
+        emit DepositReceived(msg.sender);
     }
 }
