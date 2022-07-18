@@ -10,6 +10,8 @@ import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
 contract Voting is Ownable {
 
+    ///@notice ID de la proposition gagnante.
+    ///@dev Getter de l'ID de la proposition gagnante.
     uint public winningProposalID;
     
     struct Voter {
@@ -32,7 +34,10 @@ contract Voting is Ownable {
         VotesTallied
     }
 
+    ///@notice Statut du Workflow en cours.
+    ///@dev Getter de workflowStatus.
     WorkflowStatus public workflowStatus;
+
     Proposal[] proposalsArray;
     mapping (address => Voter) voters;
 
