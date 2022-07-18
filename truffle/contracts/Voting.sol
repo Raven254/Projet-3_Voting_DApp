@@ -3,10 +3,10 @@
 pragma solidity 0.8.14;
 import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
-///@title Voting DApp - Application de vote
+///@title VOTING DAPP - Application de vote
 ///@author Marwane E.J. - help.votingDApp@gmail.com
-///@notice Cette application vous permet de proposer des idées puis de voter afin d'élire la meilleure d'entre elles.
-///@dev Application de vote avec whitelist d'electeurs, vote de proposition et election de la meilleure proposition à la majorité.
+///@notice Cette application permet aux électeurs inscrits de proposer des idées puis de voter afin d'élire la meilleure d'entre elles.
+///@dev Application de vote par phase : les fonctions dépendent du WorkflowStatus.
 
 contract Voting is Ownable {
 
@@ -51,7 +51,7 @@ contract Voting is Ownable {
     
     // ::::::::::::: GETTERS ::::::::::::: //
 
-    ///@notice Rapporte toutes les informations liées à l'électeur : whitelisting (ou non), participation au vote et l'ID de la proposition votée.
+    ///@notice Retourne toutes les informations liées à l'électeur : whitelisting (ou non), participation au vote et ID de la proposition votée.
     ///@dev Getter du mapping voters selon l'adresse.
     ///@param _addr Adresse d'un utilisateur.
     ///@return Voter Retourne l'information contenue dans la struct Voter liée à l'adresse entrée.
@@ -59,10 +59,10 @@ contract Voting is Ownable {
         return voters[_addr];
     }
     
-    ///@notice Rapporte toutes les informations liées à l'électeur : whitelisting (ou non), participation au vote et l'ID de la proposition votée.
-    ///@dev Getter du mapping voters selon l'adresse.
-    ///@param _id Adresse d'un utilisateur.
-    ///@return Proposal Retourne l'information contenue dans la struct Voter liée à l'adresse entrée.
+    ///@notice Retourne toutes les informations liées à la proposition : description et nombre de votes associés.
+    ///@dev Getter du tableau proposalsArray selon l'ID.
+    ///@param _id ID de la proposition.
+    ///@return Proposal Retourne l'information contenue dans la struct Proposal liée à l'ID entrée.
     function getOneProposal(uint _id) external onlyVoters view returns (Proposal memory) {
         return proposalsArray[_id];
     }
@@ -83,7 +83,7 @@ contract Voting is Ownable {
 
     // ::::::::::::: PROPOSAL ::::::::::::: // 
 
-    ///@notice Permet aux électeurs de soumettre au vote une proposition unique et non-vide. Un maximum de 1000 propositions peuvent être soumises.
+    ///@notice Permet aux électeurs de soumettre au vote une proposition unique et non-vide. Un maximum de 1000 propositions peuvent être soumises au total.
     ///@dev Ajout d'une proposition _desc dans le tableau proposalsArray. Nécessite le bon workflowStatus.
     ///@param _desc Proposition à soumettre au vote.
     function addProposal(string memory _desc) external onlyVoters {
