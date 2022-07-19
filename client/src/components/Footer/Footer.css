@@ -6,5 +6,7 @@
     box-shadow : 6px 3px 4px black;
     border-radius: 10px / 10 px;
     background-color: rgb(88, 97, 255);
-    padding-right: 10px;
+    position: absolute;
+    width: 50%;
+    bottom: 0;
 }
