@@ -11,10 +11,11 @@
   --gray: #999;
   --light-gray: #e0e0e0;
   --dark-gray: #777;
+  background-color: rgb(78, 103, 249);
 }
 
 #App .container {
-  width: 40%;
+  width: 50%;
   min-width: 60rem;
   max-width: 75rem;
   height: 100%;

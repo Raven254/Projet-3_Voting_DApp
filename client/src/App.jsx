@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import useEth from "./contexts/EthContext/useEth";
 import { EthProvider } from "./contexts/EthContext";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
@@ -11,7 +11,8 @@ function App() {
     <EthProvider>
       <div id="App" >
         <div className="container">
-          <Header/>
+          <Header />
+          <Footer />
         </div>
       </div>
     </EthProvider>

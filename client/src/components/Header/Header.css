@@ -1,9 +1,32 @@
 .Titre {
     font-size: 10px;
     text-align: center;
+    text-shadow: 0 0 80px rgb(192 219 255 / 75%), 0 0 32px rgb(65 120 255 / 24%);
+    color: bisque;
+    margin-top: 4em;
+    margin-bottom: 10 px;
+    border-bottom: 3px rgb(78, 83, 253) outset;
 }
 
 .Adresse {
     font-size: 10px;
+    height: 30px;
     text-align: right;
+    color: bisque;
+    border: 0.5em black solid;
+    box-shadow : 6px 3px 4px black;
+    border-radius: 10px / 10 px;
+    background-color: rgb(88, 97, 255);
+    padding-right: 10px;
+}
+
+.Addr {
+    width:80%;
+    display: right;
+    align-items: center;
+    background-color: rgb(247, 72, 136);
+    box-shadow : 6px 3px 4px black;
+    border-radius: 10px / 10 px;
+    padding: 10px;
+    margin-top: 20px;
 }
