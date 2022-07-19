@@ -5,10 +5,10 @@ import "./Header.css";
 
 
 const Header = () => {
-    const [Owner, setOwner] = useState("");
-    const [Authorized, setAuthorized] = useState(false);
     const {state: { contract, accounts }} = useEth();
-    //const voter = ({accounts} === props.voter);
+    {/*const [Owner, setOwner] = useState("");
+    const [Authorized, setAuthorized] = useState(false);
+    const voter = ({accounts} === props.voter);
 
     useEffect( () => {
         const getOwner = async() => {
@@ -21,7 +21,7 @@ const Header = () => {
             setAuthorized(voter[0]);
         }
           
-        }, []);
+        }, []);*/}
 
     return (
         <><>
