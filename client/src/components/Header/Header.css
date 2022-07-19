@@ -8,7 +8,7 @@
     border-bottom: 3px rgb(78, 83, 253) outset;
 }
 
-.Adresse {
+.Header {
     font-size: 10px;
     height: 30px;
     text-align: right;
@@ -23,6 +23,17 @@
 .Addr {
     width:80%;
     display: right;
+    align-items: center;
+    background-color: rgb(247, 72, 136);
+    box-shadow : 6px 3px 4px black;
+    border-radius: 10px / 10 px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.Status {
+    width:30%;
+    display: left;
     align-items: center;
     background-color: rgb(247, 72, 136);
     box-shadow : 6px 3px 4px black;

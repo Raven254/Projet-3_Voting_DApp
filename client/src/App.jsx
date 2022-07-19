@@ -5,8 +5,7 @@ import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
-  const [addresses, setAddresses] = useState([]);  
-
+  
   return (
     <EthProvider>
       <div id="App" >
