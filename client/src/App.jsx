@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from "react";
 import { EthProvider } from "./contexts/EthContext";
-import Header from "./components/Header/Header";
+import Intro from "./components/Intro";
+import SetupVoterZone from "./components/Voter/SetupVoterZone";
+import Owner from "./components/Owner/Owner";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
-  
   return (
     <EthProvider>
       <div id="App" >
         <div className="container">
-          <Header />
+          <Intro />
+          <hr />
+          <SetupVoterZone />
+          <hr />
+          <Owner />
+          <hr />
           <Footer />
         </div>
       </div>

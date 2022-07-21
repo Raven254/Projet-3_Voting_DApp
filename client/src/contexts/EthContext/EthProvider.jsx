@@ -17,6 +17,7 @@ function EthProvider({ children }) {
         try {
           address = artifact.networks[networkID].address;
           contract = new web3.eth.Contract(abi, address);
+          console.log(contract);
         } catch (err) {
           console.error(err);
         }
@@ -36,6 +37,7 @@ function EthProvider({ children }) {
         console.error(err);
       }
     };
+
     tryInit();
   }, [init]);
 
@@ -43,7 +45,6 @@ function EthProvider({ children }) {
     const events = ["chainChanged", "accountsChanged"];
     const handleChange = () => {
       init(state.artifact);
-      alert("Connecting with new address.");
     };
 
     events.forEach(e => window.ethereum.on(e, handleChange));

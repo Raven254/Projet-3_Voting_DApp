@@ -1,0 +1,60 @@
+.blocAdresse {
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 10px;
+    letter-spacing: 2px;
+    position: relative;
+    background-color: #5320e2;
+    border: none;
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    transition-duration: 0.4s;
+    overflow:auto;
+    box-shadow: 0 5px 15px #193047;
+    border-radius: 4px;
+}
+
+.StatusBloc {
+    margin: auto;
+    width: 50%;
+    font-size: 9px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    background-color: #8973c6;
+    border: none;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition-duration: 0.4s;
+    overflow:auto;
+    box-shadow: 0 5px 15px #193047;
+    border-radius: 4px;
+}
+  
+
+.titre{
+    text-align: center;
+    color: #5320e2;
+}
+
+.descTitre {
+text-align: center;
+}
+
+.desc{
+    border: 2px solid black;
+}
+
+.descAppu1{
+    padding-left: 30px;
+}
+
+.descAppu2{
+    padding-left: 30px;
+    padding-bottom: 10px;
+}

@@ -1,12 +1,19 @@
-.Footer {
+.footer {
+    margin: auto;
     text-align: center;
-    font-size: 10px;
-    color: bisque;
-    border: 0.5em black solid;
-    box-shadow : 6px 3px 4px black;
-    border-radius: 10px / 10 px;
-    background-color: rgb(88, 97, 255);
-    position: absolute;
-    width: 50%;
-    bottom: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 8px;
+    letter-spacing: 2px;
+    position: relative;
+    background-color: #5320e2;
+    border: none;
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    transition-duration: 0.4s;
+    overflow:auto;
+    box-shadow: 0 5px 15px #193047;
+    border-radius: 4px;
+    bottom:0;
 }
